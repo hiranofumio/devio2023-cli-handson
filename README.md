@@ -372,4 +372,14 @@ VPCページの「お使いのVPC」から作成したVPCを選択して、VPC�
 お疲れ様でした！
 
 
+# 補足: さらにCLIを学ぶためのリンク集
+
+## AWS 公式ドキュメント
+
+[CLIの公式ドキュメント](https://docs.aws.amazon.com/ja_jp/cli/index.html) に各ドキュメントがまとまっています。特に[コマンドリファレンス](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html)は各CLIコマンドの仕様を確認する際に頻繁に利用しますので、慣れておきましょう。
+
+## JAWS-UG CLI専門支部
+
+JAWS-UGはAWSのユーザがボランティアで運営しているグループです。その中でも[CLI専門支部](https://jawsug-cli.connpass.com/)は、CLIを通じてAWSの理解を深めることを目的に300回以上勉強会が開催されてきました。過去の手順書も公開されていますので、CLIの勉強に活用してください。
+CLI専門支部の手順書は、実践で利用出来るように、コマンド実行前の変数確認や、CLIによるハンズオン環境の削除など丁寧まとめられています。業務でCLIを利用する際の参考になると思います。
 
