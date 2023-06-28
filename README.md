@@ -60,7 +60,9 @@ EC2の起動準備として、VPC環境を構築していきます。
 
 [1] タグを変数に格納
 
-
+今回のハンズオンで作成したリソースを判別するために、Nameタグを準備します。
+リソース名はStep0で変数に格納済みですので、それを利用してタグ変数に格納します。
+次のStep以降も同様に実施します。
 
 ```
 VPC_TAG="ResourceType=vpc,Tags=[{Key=Name,Value=${VPC_TAG_NAME}}]" \
@@ -68,6 +70,9 @@ VPC_TAG="ResourceType=vpc,Tags=[{Key=Name,Value=${VPC_TAG_NAME}}]" \
 ```
 
 [2] VPCを作成
+
+CLIコマンドでリソースを作成します。
+
 ```
 aws ec2 create-vpc \
   --cidr-block ${VPC_CIDR} \
@@ -75,6 +80,9 @@ aws ec2 create-vpc \
 ```
 
 [3] 作成したリソースのIDを変数に格納
+
+次のStep以降で作成したリソースを参照出来るように、リソースIDを変数に格納します。
+
 ```
 VPC_ID=$( \
   aws ec2 describe-vpcs \
@@ -233,6 +241,7 @@ aws ec2 create-route \
   --gateway-id ${INTERNET_GATEWAY_ID}
 ```
 
+以上でVPC環境の構築は完了です。
 
 ## Step10 EC2インスタンス動作確認用のユーザーデータ作成
 
@@ -289,6 +298,9 @@ TAG_CONF_INSTANCE="ResourceType=instance,Tags=[{Key=${TAG_KEY},Value=${INSTANCE_
 ```
 
 [2] EC2 インスタンス起動
+
+いよいよEC2インスタンスを起動します。ここまで作成してきたリソースを、パラメーターで指定します。
+
 ```
 aws ec2 run-instances \
   --image-id ${INSTANCE_IMAGE_ID} \
